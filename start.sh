@@ -76,7 +76,7 @@ cat <<EOF >configs/magrathea.conf
 	db_user = "root"
 	db_pass = "password"
 	site_path = "$PWD/app"
-	magrathea_path = "$PWD/Magrathea/"
+	magrathea_path = "$PWD/Magrathea"
 	compress_js = "false"
 	compress_css = "false"
 	url = "http://localhost.com"
@@ -87,7 +87,7 @@ cat <<EOF >configs/magrathea.conf
 	db_user = "root"
 	db_pass = "password"
 	site_path = "prod_path/app"
-	magrathea_path = "prod_path/Magrathea/"
+	magrathea_path = "prod_path/Magrathea"
 	compress_js = "false"
 	compress_css = "false"
 	url = "http://localhost.com"
@@ -146,7 +146,7 @@ cat <<EOF >app/inc/config.php
 <?php
 
 	// set the path of magrathea framework (this way is possible to have only one instance of the framework for multiple projects)
-	\$magrathea_path = "path/to/MagratheaPHP/Magrathea";
+	\$magrathea_path = "path/to/MagratheaPHP/Magrathea";	// element
 	// set the path of your site (you can set this manually as well)
 	\$site_path = __DIR__."/../..";
 

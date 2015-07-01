@@ -137,19 +137,19 @@ echo -e "\t(a new approach to an old friend)\n"
 cat <<EOF >app/admin.php
 <?php
 	include("inc/global.php");
-	include($magrathea_path."/MagratheaAdmin.php"); // $magrathea_path should already be declared
+	include(\$magrathea_path."/MagratheaAdmin.php"); // $magrathea_path should already be declared
 
 	class LoginController extends MagratheaController {
 		public static function Login(){
-			if(@$_GET["error"] == "login_error")
+			if(@\$_GET["error"] == "login_error")
 				self::GetSmarty()->assign("message", "Login or password incorrect!");
 			self::GetSmarty()->display("login.html");
 		}
 	}
 
-	if(!empty($_SESSION["user"])) {
-		$admin = new MagratheaAdmin(); // adds the admin file
-		$admin->Load(); // load!
+	if(!empty(\$_SESSION["user"])) {
+		\$admin = new MagratheaAdmin(); // adds the admin file
+		\$admin->Load(); // load!
 	} else {
 		LoginController::Login();
 	}
