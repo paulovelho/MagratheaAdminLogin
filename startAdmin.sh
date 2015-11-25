@@ -118,6 +118,8 @@ cat <<EOF >app/login.php
 	if(!empty(\$users)){
 		\$users = html_entity_decode(\$users);
 		\$users = json_decode(\$users);	
+        } else {
+                die("users are not defined");
 	} 
 
 	foreach (\$users as \$u) {
