@@ -113,7 +113,7 @@ cat <<EOF >app/login.php
 	\$db->setPath("../database/")->setFile("adminlogin_data.magratheaDB");
 	\$db->createFileIfNotExists();
 	\$section = \$db->getConfigSection(\$env);
-	\$users = \$section["users"];
+	\$users = \$section["magrathea_user"];
 
 	if(!empty(\$users)){
 		\$users = html_entity_decode(\$users);
@@ -124,10 +124,10 @@ cat <<EOF >app/login.php
 
 	foreach (\$users as \$u) {
 		if(\$u->email == \$email && \$u->password == \$pass)
-			\$_SESSION["user"] = \$email;
+			\$_SESSION["magrathea_user"] = \$email;
 	}
 
-	if(empty(\$_SESSION["user"]))
+	if(empty(\$_SESSION["magrathea_user"]))
 		header("Location: admin.php?error=login_error");
 	else 
 		header("Location: admin.php");
@@ -149,7 +149,7 @@ cat <<EOF >app/admin.php
 		}
 	}
 
-	if(!empty(\$_SESSION["user"])) {
+	if(!empty(\$_SESSION["magrathea_user"])) {
 		\$admin = new MagratheaAdmin(); // adds the admin file
 		\$admin->Load(); // load!
 	} else {
