@@ -86,7 +86,7 @@ cat <<EOF >app/Views/login.html
 			<form method="post" action="login.php">
 				<p><input type="text" name="email" value="" placeholder="e-mail"></p>
 				<p><input type="password" name="password" value="" placeholder="password"></p>
-				{if \$message}
+				{if isset(\$message)}
 				<p class="message">{\$message}</p>
 				{/if}
 				<p class="submit"><input type="submit" class="bt" name="commit" value="Login"></p>
